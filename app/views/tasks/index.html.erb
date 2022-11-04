@@ -19,7 +19,7 @@ class TasksController < ApplicationController
     <%= link_to 'Редактировать', edit_task_path(t) %>
 
     def index
-        @task = Task.new
+        @task =Task.new
     end
     
     <%= form_for @task do |f| %>
