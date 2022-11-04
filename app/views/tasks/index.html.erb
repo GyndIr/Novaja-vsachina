@@ -1,0 +1,36 @@
+class TasksController < ApplicationController
+
+    <h1>Менеджер задач<h1>
+
+    <%= form_for @task do |f| %>
+        <%= f.text_filed :title %>
+        <%= f.text_area :text, size: "40x8" %> <br>
+        <%= f.submit "Добавить задачу" %>
+    <% end %>
+    <hr>
+
+    <% @tasks.each do |t| %>
+        <b><%= t.title %></b><br>
+        <p><%= t.text %> <%= link_to 'Удалить', task_path(t),
+                method::delete,
+                data: {confirm: 'Вы уверены?'} %></p>
+    <% end %>
+
+    <%= link_to 'Редактировать', edit_task_path(t) %>
+
+    def index
+        @task = Task.new
+    end
+    
+    <%= form_for @task do |f| %>
+        <%= f.text_field :title %>
+        <%= f.text_area :text, size: "40x8" %>
+        <%= f.submit "Add Task" %>
+    <% end %>
+    
+    <% @tasks.each do |t| %>
+        <%= t.title %>
+        <%= t.text %>
+    <% end %>
+
+  end
